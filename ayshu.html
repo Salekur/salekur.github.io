@@ -2,21 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Hi, I'm studying computer science and engineering at north south university and looking for a good chance to work with machine learning and artificial intelligence."/>
-    <meta name="keywords" content="salekur, salekurpolas, salekur rahaman, polas, salekur inc"/>
-    <meta property="og:title" content="Salekur Rahaman"/>
-    <meta property="og:image" content="https://salekur.github.io/assets/res/images/icon/favicon.ico"/>
-    <meta property="og:description" content="Hi, I'm studying computer science and engineering at north south university and looking for a good chance to work with machine learning and artificial intelligence."/>
-    <meta property="og:url" content="https://salekur.github.io" />
-    <link rel='icon' type='image/x-icon' href='favicon.png'/>
-    <title>Salekur Rahaman</title>
-    <meta http-equiv="refresh" content="0; URL=http://salekurpolas.github.io/ayshu" />
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>Welcome Ayshu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 30px;
+            padding: 20px 30px;
+            background-color: pink;
+            border-radius: 15px;
+            height: 350px;
+        }
+        .emoji {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .texts {
+            display: flex;
+            flex-direction: column;
+            font-size: 25px;
+            text-align: center;
+            font-style: bold;
+        }
+        span {
+            padding: 10px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 7px;
+            background-color: white;
+            font-size: 16px;
+            cursor: pointer;
+            width: 15%;
+            min-width: 200px;
+        }
+    </style>
 </head>
 <body>
+    <div class="content">
+        <div class="emoji">
+            <span class="fas fa-heart" style="font-size: 1em; color: red;"></span>
+            <span class="fas fa-heart" style="font-size: 2em; color: black;"></span>
+            <span class="fas fa-heart" style="font-size: 3em; color: red;"></span>
+            <span class="fas fa-heart" style="font-size: 2em; color: black;"></span>
+            <span class="fas fa-heart" style="font-size: 1em; color: red;"></span>
+        </div>
+        <div class="texts">
+            <p>Hey Ayshu</p>
+            <p><span id="type"></span></p>
+        </div>
+        <button onclick="success()">Yes</button>
+    </div>
+    <button style="margin: 20px 30px; color: white; width: 30px !important; background-color: red;" class="no_btn" onclick="loose()">No</button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
     <script>
-        window.location.replace("http://salekurpolas.github.io/ayshu");
+        new TypeIt("#type", { breakLines: false, speed: 200, loop: true }).type("Do you like me?").move(-13).delete(2).type('Will').move(8).delete(2).type('ov').move('END').go();
+        function success() { alert ("Thank you so much, Ayshu!\nI like you too."); }
+        function loose() { alert ("Thank you, Ayshu!\nBut I like you so much."); }
+
+        var button = document.querySelector(".no_btn");
+        button.addEventListener("mouseover", function() {
+            var changeTop = (Math.random() * (($(window).height() - $(".no_btn").height()) / 2));
+            var changeLeft = (Math.random() * (($(window).width() - $(".no_btn").width()) / 2));
+            $(".no_btn").css("margin-top", changeTop + "px");
+            $(".no_btn").css("margin-left", changeLeft + "px");
+        });
+    </script>
+    
+    <script >
+        document.onmousedown = disableclick;
+        var status = "Encrypted code";
+        function disableclick(event) { 
+            if(event.button==2) {
+                alert(status);
+                return false;
+            }
+        }
     </script>
 </body>
 </html>
