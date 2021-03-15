@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <title>Welcome Ayshu</title>
+    <title>Welcome Dear</title>
 
     <style>
         * {
@@ -20,7 +20,7 @@
             align-items: center;
             margin: 20px 30px;
             padding: 20px 30px;
-            background-color: pink;
+            background-color: antiquewhite;
             border-radius: 15px;
             height: 350px;
         }
@@ -36,6 +36,10 @@
             text-align: center;
             font-style: bold;
         }
+        .btns {
+            display: flex;
+            flex-direction: column;
+        }
         span {
             padding: 10px;
         }
@@ -45,11 +49,20 @@
             border: none;
             outline: none;
             border-radius: 7px;
-            background-color: white;
+            color: white;
+            background-color: red;
             font-size: 16px;
             cursor: pointer;
             width: 15%;
             min-width: 200px;
+        }
+        .pre-no, .post-no {
+            color: white;
+            background-color: black;
+        }
+        .post-no {
+            margin: 20px 30px;
+            width: 50px !important;
         }
     </style>
 </head>
@@ -63,39 +76,38 @@
             <span class="fas fa-heart" style="font-size: 1em; color: red;"></span>
         </div>
         <div class="texts">
-            <p>Hey Ayshu</p>
+            <p>Hey You</p>
             <p><span id="type"></span></p>
         </div>
-        <button onclick="success()">Yes</button>
+        <div class="btns">
+            <button onclick="success()">Yes</button>
+            <button class="pre-no">No</button>
+        </div>
     </div>
-    <button style="margin: 20px 30px; color: white; width: 30px !important; background-color: red;" class="no_btn" onclick="loose()">No</button>
+    <button class="post-no" onclick="loose()" style="display: none;">No</button>
     
     <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
     <script>
         new TypeIt("#type", { breakLines: false, speed: 200, loop: true }).type("Do you like me?").move(-13).delete(2).type('Will').move(8).delete(2).type('ov').move('END').go();
-        function success() { alert ("Thank you so much, Ayshu!\nI like you too."); }
-        function loose() { alert ("Thank you, Ayshu!\nBut I like you so much."); }
-
-        var button = document.querySelector(".no_btn");
-        button.addEventListener("mouseover", function() {
-            var changeTop = (Math.random() * (($(window).height() - $(".no_btn").height()) / 2));
-            var changeLeft = (Math.random() * (($(window).width() - $(".no_btn").width()) / 2));
-            $(".no_btn").css("margin-top", changeTop + "px");
-            $(".no_btn").css("margin-left", changeLeft + "px");
-        });
-    </script>
-    
-    <script >
-        document.onmousedown = disableclick;
-        var status = "Encrypted code";
-        function disableclick(event) { 
-            if(event.button==2) {
-                alert(status);
-                return false;
-            }
+        var pre_no = document.querySelector(".pre-no");
+        var post_no = document.querySelector(".post-no");
+        pre_no.addEventListener("mouseover", function() { triggerBtn(); });
+        pre_no.addEventListener("click", function() { triggerBtn(); });
+        post_no.addEventListener("mouseover", function() { changeLoc(); });
+        function triggerBtn() {
+            $(".pre-no").css("display", "none");
+            $(".post-no").css("display", "block");
         }
+        function changeLoc() {
+            var changeTop = (Math.random() * (($(window).height() - $(".post-no").height()) / 2));
+            var changeLeft = (Math.random() * (($(window).width() - $(".post-no").width()) / 2));
+            $(".post-no").css("margin-top", changeTop + "px");
+            $(".post-no").css("margin-left", changeLeft + "px");
+        }
+        function success() { alert ("Thank you so much!\nI like you too."); }
+        function loose() { alert ("Thank you!\nBut I like you so much."); }
     </script>
 </body>
 </html>
